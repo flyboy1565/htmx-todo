@@ -1,0 +1,14 @@
+<form hx-put="{% url 'update' task.id %}" hx-target="this" hx-swap="outerHTML">
+
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col">{{task.task}}</div>
+        <div class="col">
+            {% if task.status != 'C' %}
+            <button class="btn btn-primary" type="submit">Done</button>
+            {% endif %}
+            <a href="#" hx-target="closest form" hx-swap="outHTML swap:1s" hx-delete="{% url 'delete' task.pk %}">Delete</a>
+        </div>
+    </div>
+</li>
+</form>
